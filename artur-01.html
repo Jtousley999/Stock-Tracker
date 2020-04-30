@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Project 1 Testing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+</head>
+
+<body>
+
+    <div class = "container">
+        <h1>
+            Stock-Tracker
+        </h1>
+        <div class = "row">
+            <div class = "col-sm-6">
+
+            </div>
+            <div class = "col-sm-6">
+                
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-6">
+
+            </div>
+            <div class = "col-sm-6">
+                
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-6">
+
+            </div>
+            <div class = "col-sm-6">
+                
+            </div>    
+        </div>
+        <h2 class = "exp"></h2>
+        <h2 class = "exp1"></h2>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"> 
+
+    var symbol = "MSFT";
+
+    var apiKey = "K0529GI9C27OCRIL";
+
+    var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=" + apiKey; 
+
+    var secondURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + symbol +"&apikey=" + apiKey;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+            console.log(response['Global Quote']['01. symbol']);
+            $(".exp").text(response['Global Quote']['01. symbol'])
+        });
+
+        $.ajax({
+            url: secondURL,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);            
+        });
+
+    </script>   
+</body>
+    
+</html>
