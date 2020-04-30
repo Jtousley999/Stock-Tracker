@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Project 1 Testing</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="style.css">  
 </head>
 
 <body>
@@ -15,58 +16,144 @@
         </h1>
         <div class = "row">
             <div class = "col-sm-6">
-
+                <div class="card">
+                    <div class="card-header">
+                      GOOGLE
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2> GOOG</h2>
+                        <h3 id="price1"></h3>
+                      </blockquote>
+                    </div>
+                  </div>
             </div>
             <div class = "col-sm-6">
-                
+                <div class="card">
+                    <div class="card-header">
+                      MICROSOFT
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2>MSFT</h2>  
+                        <h3 id="price2"></h3>
+                      </blockquote>
+                    </div>
+                  </div>
             </div>
         </div>
         <div class = "row">
             <div class = "col-sm-6">
-
+                <div class="card">
+                    <div class="card-header">
+                      AMAZON
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2>AMZN</h2>    
+                        <h3 id="price3"></h3>
+                      </blockquote>
+                    </div>
+                  </div>
             </div>
             <div class = "col-sm-6">
-                
+                <div class="card">
+                    <div class="card-header">
+                      APPLE
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2>AAPL</h2>  
+                        <h3 id="price4"></h3>   
+                      </blockquote>
+                    </div>
+                  </div>
             </div>
         </div>
         <div class = "row">
             <div class = "col-sm-6">
-
+                <div class="card">
+                    <div class="card-header">
+                      TESLA
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2>TSLA</h2>
+                        <h3 id="price5"></h3> 
+                      </blockquote>
+                    </div>
+                  </div>
             </div>
             <div class = "col-sm-6">
-                
+                <div class="card">
+                    <div class="card-header">
+                      JOHNSON & JOHNSON
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+                        <h2>JNJ</h2>
+                        <h3 id="price6"></h3>     
+                      </blockquote>
+                    </div>
+                  </div>
             </div>    
         </div>
-        <h2 class = "exp"></h2>
-        <h2 class = "exp1"></h2>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"> 
 
-    var symbol = "MSFT";
+    var symbol = "";
 
     var apiKey = "K0529GI9C27OCRIL";
 
-    var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=" + apiKey; 
+    var keyWord = "";    
 
     var secondURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + symbol +"&apikey=" + apiKey;
 
+    var thirdURL = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyWord + "&apikey=" + apiKey;
+
+    function getCurrent(sym){
+        symbol = sym;
+        var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=" + apiKey; 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function(response){
-            console.log(response);
-            console.log(response['Global Quote']['01. symbol']);
-            $(".exp").text(response['Global Quote']['01. symbol'])
+            if(sym === "GOOG"){
+                $("#price1").text(response['Global Quote']['05. price']) 
+            }
+            else if(sym === "MSFT"){
+                $("#price2").text(response['Global Quote']['05. price']) 
+            }
+            else if(sym === "AMZN"){
+                $("#price3").text(response['Global Quote']['05. price']) 
+            }
+            else if(sym === "AAPL"){
+                $("#price4").text(response['Global Quote']['05. price']) 
+            }
+            else if(sym === "TSLA"){
+                $("#price5").text(response['Global Quote']['05. price']) 
+            }
+            else if(sym === "JNJ"){
+                $("#price6").text(response['Global Quote']['05. price']) 
+            }
         });
+    }
 
-        $.ajax({
-            url: secondURL,
-            method: "GET"
-        }).then(function(response){
-            console.log(response);            
-        });
+    getCurrent("GOOG");
+    getCurrent("MSFT");
+    getCurrent("AMZN");
+    getCurrent("AAPL");
+    getCurrent("TSLA");
+    getCurrent("JNJ");
+
+    // $.ajax({
+    //     url: secondURL,
+    //     method: "GET"
+    // }).then(function(response){
+    //     console.log(response);            
+    // });
 
     </script>   
 </body>
