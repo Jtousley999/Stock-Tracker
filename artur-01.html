@@ -87,11 +87,11 @@
             <div class = "col-sm-6">
                 <div class="card">
                     <div class="card-header">
-                      JOHNSON & JOHNSON
+                      ALIBABA
                     </div>
                     <div class="card-body">
                       <blockquote class="blockquote mb-0">
-                        <h2>JNJ</h2>
+                        <h2>BABA</h2>
                         <h3 id="price6"></h3>     
                       </blockquote>
                     </div>
@@ -101,61 +101,8 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript"> 
-
-    var symbol = "";
-
-    var apiKey = "K0529GI9C27OCRIL";
-
-    var keyWord = "";    
-
-    var secondURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + symbol +"&apikey=" + apiKey;
-
-    var thirdURL = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyWord + "&apikey=" + apiKey;
-
-    function getCurrent(sym){
-        symbol = sym;
-        var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol +"&apikey=" + apiKey; 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response){
-            if(sym === "GOOG"){
-                $("#price1").text(response['Global Quote']['05. price']) 
-            }
-            else if(sym === "MSFT"){
-                $("#price2").text(response['Global Quote']['05. price']) 
-            }
-            else if(sym === "AMZN"){
-                $("#price3").text(response['Global Quote']['05. price']) 
-            }
-            else if(sym === "AAPL"){
-                $("#price4").text(response['Global Quote']['05. price']) 
-            }
-            else if(sym === "TSLA"){
-                $("#price5").text(response['Global Quote']['05. price']) 
-            }
-            else if(sym === "JNJ"){
-                $("#price6").text(response['Global Quote']['05. price']) 
-            }
-        });
-    }
-
-    getCurrent("GOOG");
-    getCurrent("MSFT");
-    getCurrent("AMZN");
-    getCurrent("AAPL");
-    getCurrent("TSLA");
-    getCurrent("JNJ");
-
-    // $.ajax({
-    //     url: secondURL,
-    //     method: "GET"
-    // }).then(function(response){
-    //     console.log(response);            
-    // });
-
-    </script>   
+    <script type="text/javascript"></script>   
+    <script src="./script.js"></script>
 </body>
     
 </html>
