@@ -97,3 +97,7 @@ function showResults() {
 
     });
 }
+
+$("#backToMain").on("click", function () {
+    location.href = "index.html";
+});
