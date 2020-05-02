@@ -49,6 +49,13 @@ $("#first-search").on("click", function () {
     showResults();
     // $("#first-search").attr("href", "search.html");
 });
+$('#stockSearch').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        searchWord = $("#stockSearch").val()
+        showResults();
+    }
+});;
 
 function showResults() {
     $("#searchThing").text("Searched Results For: " + searchWord);
