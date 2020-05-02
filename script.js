@@ -47,16 +47,13 @@ getCurrent("BABA");
 
 $("#first-search").on("click", function(){
     searchWord = $("#stockSearch").val()
-    console.log(searchWord);
-    localStorage.setItem("searchedFor", searchWord);
-    $("#first-search").attr("href", "search.html");
+    // console.log(searchWord);
+    showResults();
+    // $("#first-search").attr("href", "search.html");
 });
 
-searchWord = localStorage.getItem("searchedFor");
-
-$("#searchThing").text("Searched Results For: " + searchWord);
-
 function showResults(){
+    $("#searchThing").text("Searched Results For: " + searchWord);
     keyWord = searchWord;
     var thirdURL = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyWord + "&apikey=" + apiKey
     $.ajax({
@@ -83,7 +80,7 @@ function showResults(){
 
             var proceed = $("<a>")
             proceed.attr("class", "waves-effect waves-light btn-large");
-            proceed.attr("value", head4);
+            proceed.attr("value", symb);
             proceed.text("CONTINUE");
 
             resultDiv.append(head3);
@@ -95,5 +92,3 @@ function showResults(){
 
     });
 }
-
-showResults();
