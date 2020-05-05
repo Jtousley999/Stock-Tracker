@@ -1,15 +1,16 @@
-  
+var saved = localStorage.getItem("searched");
+
+var named = localStorage.getItem("named");
+
 var symbol = "";
 
-var apiKey = "OQSE2W0XD2C5HX0Z";
+var apiKey = "IDCBFUJ8G1MEMOI4";
 
-var keyWord = "";
+console.log(symbol);
 
 var searchWord = "";
 
-var contCode = "";
-
-var contName = "";
+var keyWord = "";
 
 function getCurrent(sym){
     symbol = sym;
@@ -30,12 +31,6 @@ function getCurrent(sym){
         else if(sym === "AAPL"){
             $("#price4").text(response['Global Quote']['05. price']) 
         }
-        else if(sym === "TSLA"){
-            $("#price5").text(response['Global Quote']['05. price']) 
-        }
-        else if(sym === "BABA"){
-            $("#price6").text(response['Global Quote']['05. price']) 
-        }
     });
 }
 
@@ -43,11 +38,27 @@ getCurrent("GOOG");
 getCurrent("MSFT");
 getCurrent("AMZN");
 getCurrent("AAPL");
-getCurrent("TSLA");
-getCurrent("BABA");
+
+$(".btn-large").on("click", function(){
+    $(".btn-large").attr("href", "artur-01.html");
+});
+
+function loadSearched(){
+    var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + saved +"&apikey=" + apiKey; 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+        $("#searchedName").text(named);
+        $("#searchedCode").text(response['Global Quote']['01. symbol']);
+        $("#priceNow").text(response['Global Quote']['05. price']);
+    });
+}
 
 $("#first-search").on("click", function(){
     searchWord = $("#stockSearch").val()
+    console.log($("#stockSearch").val())
     showResults();
 });
 
@@ -105,3 +116,4 @@ function showResults(){
     });
 }
 
+loadSearched();
