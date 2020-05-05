@@ -90,7 +90,6 @@ function showResults() {
             localStorage.setItem("searched", contCode);
             localStorage.setItem("named", contName);
             $(".btn-large").attr("href", "main.html");
-            newCardInfo();
         })
 
     });
