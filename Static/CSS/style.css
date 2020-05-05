@@ -1,18 +1,22 @@
 body {
-  background-image: url(https://www.pngitem.com/pimgs/m/50-505488_falling-money-background-png-money-falling-into-pile.png);
+    background-image: url(https://www.pngitem.com/pimgs/m/50-505488_falling-money-background-png-money-falling-into-pile.png);
 }
 
 .cardStyle {
-  color: white;
-  font-family: "Jost", sans-serif;
-  padding: 30px;
-}
-.borderStyle {
-  border-left: 3px solid white;
-}
+    color: white;
+    font-family: "Jost", sans-serif;
+    padding: 30px;
+  }
+  .borderStyle {
+    border-left: 3px solid white;
+  }
 
 .titleCard {
-  color: #004d40;
-  font-weight: bolder;
-  font-family: "Righteous", cursive;
+    color: #004d40;
+    font-weight: bolder;
+    font-family: 'Righteous', cursive;
+}
+
+#main-stock {
+  text-align: center;
 }
