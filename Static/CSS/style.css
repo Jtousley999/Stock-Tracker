@@ -16,3 +16,7 @@ body {
   font-weight: bolder;
   font-family: "Righteous", cursive;
 }
+
+#main-stock {
+  text-align: center;
+}

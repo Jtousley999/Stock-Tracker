@@ -1,6 +1,6 @@
 var symbol = "";
 
-var apiKey = "OQSE2W0XD2C5HX0Z";
+var apiKey = "IDCBFUJ8G1MEMOI4";
 
 var keyWord = "";
 
@@ -68,13 +68,13 @@ function showResults() {
     var results = response.bestMatches;
     for (var i = 0; i < results.length; i++) {
       var resultDiv = $("<div>");
-      resultDiv.attr("class", "card col s6");
+      resultDiv.attr("class", "card col s6 teal lighten-5");
 
       var name = results[i]["2. name"];
       var symb = results[i]["1. symbol"];
 
-      var head3 = $("<h3>").text(name);
-      var head4 = $("<h4>").text(symb);
+      var head3 = $("<h3>").text(name).attr("class", "flow-text");
+      var head4 = $("<h4>").text(symb).attr("class", "flow-text");
 
       var proceed = $("<a>");
       proceed.attr("class", "waves-effect waves-light btn-large");

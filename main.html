@@ -1,108 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Project 1 Testing</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="Static/CSS/style.css" />
-  </head>
 
-  <body>
-    <div class="card-panel">
-      <h1 id="header " class="center-align">Stock-Tracker</h1>
+<head>
+  <meta charset="utf-8" />
+  <title>Stock Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Static/CSS/style.css" />
+</head>
+
+<body>
+  <div class="card-panel">
+    <h1 id="header " class="center-align">Stock Tracker</h1>
+  </div>
+  <div class="container">
+    <nav class="searchStyle">
+      <div class="nav-wrapper teal lighten-5">
+        <div class="row">
+          <form class="col s12">
+            <div class="input-field">
+              <input id="stockSearch" type="text" class="col s11 validate" placeholder="Enter company name here">
+              <a class="waves-effect waves-light btn teal darken-3" id="first-search">SEARCH</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col s3">
+        <div class="row">
+          <div class="col s12">
+            <div class="card cardStyle teal darken-4">
+              <div class="card-content">
+                <span class="card-title">GOOGLE</span>
+                <blockquote class="borderStyle">
+                  <h2>GOOG</h2>
+                  <h3 id="price1" class="text-flow"></h3>
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="card cardStyle teal darken-4">
+              <div class="card-content">
+                <span class="card-title">AMAZON</span>
+                <blockquote class="borderStyle">
+                  <h2>AMZN</h2>
+                  <h3 id="price3" class="text-flow"></h3>
+                </blockquote>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+
+        <div id="main-stock" class="card cardStyle teal darken-4">
+          <div class="card-content">
+            <span class="card-title" id="card-title"></span>
+            <h2 id="searchedName"></h2>
+            <h3 id="searchedCode"></h3>
+            <h3 id="priceNow"></h3>
+          </div>
+
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="row">
+          <div class="col s12">
+            <div class="card cardStyle teal darken-4">
+              <div class="card-content">
+                <span class="card-title">MICROSOFT</span>
+                <blockquote class="borderStyle">
+                  <h2>MSFT</h2>
+                  <h3 id="price2" class="text-flow"></h3>
+                </blockquote>
+              </div>
+            </div>
+            <div class="card cardStyle teal darken-4">
+              <div class="card-content">
+                <span class="card-title">APPLE</span>
+                <blockquote class="borderStyle">
+                  <h2>AAPL</h2>
+                  <h3 id="price4" class="text-flow"></h3>
+                </blockquote>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <nav class="searchStyle">
-        <div class="nav-wrapper teal lighten-5">
-          <div class="row">
-            <form class="col s12">
-              <div class="input-field">
-                <input id="stockSearch" type="text" class="col s11 validate" placeholder="Enter company name here">
-                <a class="waves-effect waves-light btn teal darken-3" id="first-search">SEARCH</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </nav>
- 
-      <div class="row">
-        <div class="col s3">
-          <div class="row">
-            <div class="col s12">
-              <div class="card cardStyle teal darken-4 ">
-                <div class="card-content">
-                  <span class="card-title">GOOGLE</span>
-                  <blockquote class="borderStyle">
-                    <h2>GOOG</h2>
-                    <h3 id="price1"></h3>
-                  </blockquote >
-                </div>
-              </div>
 
-              <div class="card cardStyle teal darken-4">
-                <div class="card-content">
-                  <span class="card-title">AMAZON</span>
-                  <blockquote class="borderStyle">
-                    <h2>AMZN</h2>
-                    <h3 id="price3"></h3>
-                  </blockquote>
-                </div>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col s6">
-
-          <div class="card cardStyle teal darken-4">
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. At iste fuga soluta enim tempora consequuntur minus hic reiciendis accusantium vitae, provident nemo ipsa excepturi inventore nostrum deserunt quis nam veritatis blanditiis temporibus, odit assumenda aperiam tenetur suscipit. Qui, veritatis facere quod distinctio quo atque exercitationem doloribus dolorum? In molestias culpa vero sapiente delectus nihil accusantium quis dolorem, quod deserunt alias ducimus perspiciatis adipisci pariatur consequatur aperiam quo possimus quisquam, consequuntur quibusdam, a repudiandae quos doloribus! Tenetur, velit asperiores itaque, et nisi est voluptatibus impedit autem laborum qui voluptas, necessitatibus culpa accusantium dignissimos modi unde corrupti neque! Ducimus repudiandae odio consequuntur expedita veniam amet quas? Dolorum sapiente suscipit et quisquam natus, nam nobis tempore iste explicabo voluptas eligendi maxime sunt velit ad facilis molestias reprehenderit nostrum consequatur accusamus, aliquid commodi quas cum ipsam incidunt? Facere deserunt illum magni fugiat quod eos veritatis asperiores quas id qui aperiam consequatur corrupti, harum recusandae at ullam nisi voluptatibus eligendi perspiciatis neque. Unde ad totam numquam delectus eaque omnis adipisci molestiae officia placeat nam rem facere magnam vitae qui quibusdam dolorum, itaque deserunt exercitationem mollitia! Impedit atque molestias eum eveniet, illo, laborum omnis cupiditate rerum, consectetur quam ipsam corrupti consequuntur delectus? Modi, quos? Corrupti, quod.   </p>
-            </div>
-            
-          </div>
-        </div>
-        <div class="col s3">
-          <div class="row">
-            <div class="col s12">
-              <div class="card cardStyle teal darken-4">
-                <div class="card-content">
-                  <span class="card-title">MICROSOFT</span>
-                  <blockquote class="borderStyle">
-                    <h2>MSFT</h2>
-                    <h3 id="price2"></h3>
-                  </blockquote>
-                </div>
-              </div>
-              <div class="card cardStyle teal darken-4">
-                <div class="card-content">
-                  <span class="card-title">APPLE</span>
-                  <blockquote class="borderStyle">
-                    <h2>AAPL</h2>
-                    <h3 id="price4"></h3>
-                  </blockquote>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col s12">
+        <a id="backToMain" class="waves-effect waves-light btn-large" style="width:100%">Back to Main</a>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col s12">
-          <a id="backToMain"class="waves-effect waves-light btn-large" style="width:100%">Back to Main</a>
-        </div>
-      </div>
+    <h1 id = "searchThing"></h1>
+    <div id = "searchResults"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"></script>
+    <script src="Static/JS/script.js"></script>
     <script src="Static/JS/main.js"></script>
-  </body>
+</body>
+
 </html>
