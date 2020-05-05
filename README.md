@@ -20,6 +20,10 @@ I WANT to see stock information
 SO THAT I can determine whether to buy or sell that stock
 ```
 
+![main page of stock tracker](./Assets/main-page.png)
+![searched results](./Assets/search-results.png)
+![results of the search](./Assets/stock-search-page.png)
+
 ### Technology/Framework:
 
 * jQuery / AJAX
