@@ -1,38 +1,14 @@
-$("#first-search").on("click", function () {
-  searchWord = $("#stockSearch").val();
-  // console.log(searchWord);
-  showResults();
-  // $("#first-search").attr("href", "search.html");
-});
-$("#stockSearch").keydown(function (e) {
-  if (e.keyCode == 13) {
-    e.preventDefault();
-    searchWord = $("#stockSearch").val();
-    showResults();
-  }
-});
-
-$("#backToMain").on("click", function () {
-  location.href = "index.html";
-});
-
 var symbol = "";
 
-var apiKey = "K0529GI9C27OCRIL";
+var apiKey = "OQSE2W0XD2C5HX0Z";
 
 var keyWord = "";
 
-var secondURL =
-  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" +
-  symbol +
-  "&apikey=" +
-  apiKey;
+var searchWord = "";
 
-var thirdURL =
-  "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" +
-  keyWord +
-  "&apikey=" +
-  apiKey;
+var contCode = "";
+
+var contName = "";
 
 function getCurrent(sym) {
   symbol = sym;
@@ -53,10 +29,6 @@ function getCurrent(sym) {
       $("#price3").text(response["Global Quote"]["05. price"]);
     } else if (sym === "AAPL") {
       $("#price4").text(response["Global Quote"]["05. price"]);
-    } else if (sym === "TSLA") {
-      $("#price5").text(response["Global Quote"]["05. price"]);
-    } else if (sym === "BABA") {
-      $("#price6").text(response["Global Quote"]["05. price"]);
     }
   });
 }
@@ -65,27 +37,23 @@ getCurrent("GOOG");
 getCurrent("MSFT");
 getCurrent("AMZN");
 getCurrent("AAPL");
-getCurrent("TSLA");
-getCurrent("BABA");
 
 $("#first-search").on("click", function () {
   searchWord = $("#stockSearch").val();
-  // console.log(searchWord);
   showResults();
-  // $("#first-search").attr("href", "search.html");
 });
+
 $("#stockSearch").keydown(function (e) {
   if (e.keyCode == 13) {
     e.preventDefault();
-    searchWord = $("#stockSearch").val().trim();
+    searchWord = $("#stockSearch").val();
     showResults();
   }
 });
 
 function showResults() {
-  $("#searchThing")
-    .text("Searched Results For: " + searchWord)
-    .css("color", "#004d40");
+  $("#searchResults").empty();
+  $("#searchThing").text("Searched Results For: " + searchWord);
   keyWord = searchWord;
   var thirdURL =
     "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" +
@@ -100,22 +68,18 @@ function showResults() {
     var results = response.bestMatches;
     for (var i = 0; i < results.length; i++) {
       var resultDiv = $("<div>");
-      resultDiv.attr("class", "card col s6 teal lighten-5");
-
-      console.log(results[i]);
+      resultDiv.attr("class", "card col s6");
 
       var name = results[i]["2. name"];
       var symb = results[i]["1. symbol"];
 
-      console.log(name);
-      console.log(symb);
-
-      var head3 = $("<h3>").text(name).attr("class", "flow-text");
-      var head4 = $("<h4>").text(symb).attr("class", "flow-text");
+      var head3 = $("<h3>").text(name);
+      var head4 = $("<h4>").text(symb);
 
       var proceed = $("<a>");
       proceed.attr("class", "waves-effect waves-light btn-large");
-      proceed.attr("value", symb);
+      proceed.attr("value", results[i]["1. symbol"]);
+      proceed.attr("title", results[i]["2. name"]);
       proceed.text("CONTINUE");
 
       resultDiv.append(head3);
@@ -124,9 +88,13 @@ function showResults() {
 
       $("#searchResults").append(resultDiv);
     }
+    $(".btn-large").on("click", function () {
+      contCode = $(this).attr("value");
+      contName = $(this).attr("title");
+      localStorage.setItem("searched", contCode);
+      localStorage.setItem("named", contName);
+      $(".btn-large").attr("href", "main.html");
+      newCardInfo();
+    });
   });
 }
-
-$("#backToMain").on("click", function () {
-  location.href = "index.html";
-});
