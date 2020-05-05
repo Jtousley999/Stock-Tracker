@@ -163,9 +163,6 @@ function updatePage(NYTData) {
         // Get specific article info for current index
         var article = NYTData.response.docs[i];
 
-        // Increase the articleCount (track article # - starting at 1)
-        var articleCount = i + 1;
-
         // Create the  list group to contain the articles and add the article content for each
         var $articleList = $("<ul>");
         $articleList.addClass("list-group");
@@ -180,12 +177,10 @@ function updatePage(NYTData) {
         if (headline && headline.main) {
             console.log(headline.main);
             $articleListItem.append(
-                "<span class='label label-primary'>" +
-                articleCount +
-                "</span>" +
-                "<strong> " +
+                "<span class='label label-primary'></span>" +
+                "<h3> " +
                 headline.main +
-                "</strong>"
+                "</h3>"
             );
         }
 
@@ -194,7 +189,7 @@ function updatePage(NYTData) {
 
         if (byline && byline.original) {
             console.log(byline.original);
-            $articleListItem.append("<h5>" + byline.original + "</h5>");
+            $articleListItem.append("<h4>" + byline.original + "</h5>");
         }
 
         // Log section, and append to document if exists
@@ -208,11 +203,11 @@ function updatePage(NYTData) {
         var pubDate = article.pub_date;
         console.log(article.pub_date);
         if (pubDate) {
-            $articleListItem.append("<h5>" + pubDate + "</h5>");
+            $articleListItem.append("<h5>Publish Date: " + article.pub_date.substring(5, 8) + article.pub_date.substring(8, 10) + "-" + article.pub_date.substring(0, 4) + "</h5>");
         }
 
         // Append and log url
-        $articleListItem.append("<a href='" + article.web_url + "'>" + article.web_url + "</a>");
+        $articleListItem.append("<a href='" + article.web_url + "'>" + "Click here to read!" + "</a>");
         console.log(article.web_url);
 
         // Append the article
