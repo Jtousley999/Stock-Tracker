@@ -46,9 +46,69 @@ function loadSearched() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#searchedName").html("<b>" + named + "</b>");
+        $("#searchedName").text(named);
         $("#searchedCode").text(response['Global Quote']['01. symbol']);
         $("#priceNow").text(response['Global Quote']['05. price']);
+    });
+}
+
+$("#first-search").on("click", function () {
+    searchWord = $("#stockSearch").val()
+    console.log($("#stockSearch").val())
+    showResults();
+});
+
+$('#stockSearch').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        searchWord = $("#stockSearch").val()
+        showResults();
+    }
+});;
+
+function showResults() {
+    $("#searchResults").empty();
+    $("#searchThing").text("Searched Results For: " + searchWord);
+    keyWord = searchWord;
+    var thirdURL = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyWord + "&apikey=" + apiKey
+    $.ajax({
+        url: thirdURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        var results = response.bestMatches;
+        for (var i = 0; i < results.length; i++) {
+            var resultDiv = $("<div>");
+            resultDiv.attr("class", "card col s6 teal lighten-5");
+
+            var name = results[i]['2. name'];
+            var symb = results[i]['1. symbol'];
+
+            var head3 = $("<h3>").text(name).css("margin", "20px");
+            var head4 = $("<h4>").text(symb).css("margin", "20px");
+
+            var proceed = $("<a>")
+            proceed.attr("class", "waves-effect waves-light btn-large").css("margin", "15px");
+            proceed.attr("value", results[i]['1. symbol']);
+            proceed.attr("title", results[i]['2. name']);
+            proceed.text("CONTINUE");
+
+            resultDiv.append(head3);
+            resultDiv.append(head4);
+            resultDiv.append(proceed);
+
+            $("#searchResults").append(resultDiv);
+
+        }
+        $(".btn-large").on("click", function () {
+            contCode = $(this).attr("value");
+            contName = $(this).attr("title");
+            localStorage.setItem("searched", contCode);
+            localStorage.setItem("named", contName);
+            $(".btn-large").attr("href", "main.html");
+            newCardInfo();
+        })
+
     });
 }
 

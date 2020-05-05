@@ -1,6 +1,6 @@
 var symbol = "";
 
-var apiKey = "IDCBFUJ8G1MEMOI4";
+var apiKey = "OQSE2W0XD2C5HX0Z";
 
 var keyWord = "";
 
@@ -72,7 +72,7 @@ function showResults() {
             var head4 = $("<h4>").text(symb).attr("class", "flow-text");
 
             var proceed = $("<a>")
-            proceed.attr("class", "waves-effect waves-light btn-large");
+            proceed.attr("class", "waves-effect waves-light btn-large").css("margin", "15px");
             proceed.attr("value", results[i]['1. symbol']);
             proceed.attr("title", results[i]['2. name']);
             proceed.text("CONTINUE");
@@ -95,7 +95,3 @@ function showResults() {
 
     });
 }
-
-$("#backToMain").on("click", function () {
-    location.href = "index.html";
-});
