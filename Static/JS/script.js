@@ -74,9 +74,18 @@ $("#first-search").on("click", function () {
   showResults();
   // $("#first-search").attr("href", "search.html");
 });
+$("#stockSearch").keydown(function (e) {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+    searchWord = $("#stockSearch").val().trim();
+    showResults();
+  }
+});
 
 function showResults() {
-  $("#searchThing").text("Searched Results For: " + searchWord);
+  $("#searchThing")
+    .text("Searched Results For: " + searchWord)
+    .css("color", "#004d40");
   keyWord = searchWord;
   var thirdURL =
     "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" +
@@ -91,7 +100,7 @@ function showResults() {
     var results = response.bestMatches;
     for (var i = 0; i < results.length; i++) {
       var resultDiv = $("<div>");
-      resultDiv.attr("class", "card col s6");
+      resultDiv.attr("class", "card col s6 teal lighten-5");
 
       console.log(results[i]);
 
@@ -101,8 +110,8 @@ function showResults() {
       console.log(name);
       console.log(symb);
 
-      var head3 = $("<h3>").text(name);
-      var head4 = $("<h4>").text(symb);
+      var head3 = $("<h3>").text(name).attr("class", "flow-text");
+      var head4 = $("<h4>").text(symb).attr("class", "flow-text");
 
       var proceed = $("<a>");
       proceed.attr("class", "waves-effect waves-light btn-large");
@@ -117,3 +126,7 @@ function showResults() {
     }
   });
 }
+
+$("#backToMain").on("click", function () {
+  location.href = "index.html";
+});

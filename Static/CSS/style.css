@@ -7,11 +7,12 @@ body {
   font-family: "Jost", sans-serif;
   padding: 30px;
 }
-
 .borderStyle {
   border-left: 3px solid white;
 }
 
-.searchStyle {
-  margin: 20px;
+.titleCard {
+  color: #004d40;
+  font-weight: bolder;
+  font-family: "Righteous", cursive;
 }
