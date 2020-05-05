@@ -6,48 +6,47 @@
   <title>Stock Tracker</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="Static/CSS/style.css" />
 </head>
 
 <body>
   <div class="card-panel">
-    <h1 id="header" class="center-align">Stock Tracker</h1>
+    <h1 id="header " class="center-align">Stock Tracker</h1>
   </div>
   <div class="container">
-    <nav>
+    <nav class="searchStyle">
       <div class="nav-wrapper teal lighten-5">
         <div class="row">
           <form class="col s12">
             <div class="input-field">
-              <input id="stockSearch" type="text" class=" col s10 validate" placeholder="Enter company name here">
-              <a class="waves-effect waves-light btn teal darken-2" id="first-search">SEARCH</a>
+              <input id="stockSearch" type="text" class="col s11 validate" placeholder="Enter company name here">
+              <a class="waves-effect waves-light btn teal darken-3" id="first-search">SEARCH</a>
             </div>
           </form>
         </div>
       </div>
     </nav>
 
-
     <div class="row">
       <div class="col s3">
         <div class="row">
           <div class="col s12">
-            <div class="card">
+            <div class="card cardStyle teal darken-4">
               <div class="card-content">
                 <span class="card-title">GOOGLE</span>
-                <blockquote>
+                <blockquote class="borderStyle">
                   <h2>GOOG</h2>
-                  <h3 id="price1"></h3>
+                  <h3 id="price1" class="text-flow"></h3>
                 </blockquote>
               </div>
             </div>
 
-            <div class="card">
+            <div class="card cardStyle teal darken-4">
               <div class="card-content">
                 <span class="card-title">AMAZON</span>
-                <blockquote>
+                <blockquote class="borderStyle">
                   <h2>AMZN</h2>
-                  <h3 id="price3"></h3>
+                  <h3 id="price3" class="text-flow"></h3>
                 </blockquote>
               </div>
             </div>
@@ -57,7 +56,7 @@
       </div>
       <div class="col s6">
 
-        <div class="card">
+        <div id="main-stock" class="card cardStyle teal darken-4">
           <div class="card-content">
             <span class="card-title" id="card-title"></span>
             <h2 id="searchedName"></h2>
@@ -70,21 +69,21 @@
       <div class="col s3">
         <div class="row">
           <div class="col s12">
-            <div class="card">
+            <div class="card cardStyle teal darken-4">
               <div class="card-content">
                 <span class="card-title">MICROSOFT</span>
-                <blockquote>
+                <blockquote class="borderStyle">
                   <h2>MSFT</h2>
-                  <h3 id="price2"></h3>
+                  <h3 id="price2" class="text-flow"></h3>
                 </blockquote>
               </div>
             </div>
-            <div class="card">
+            <div class="card cardStyle teal darken-4">
               <div class="card-content">
                 <span class="card-title">APPLE</span>
-                <blockquote>
+                <blockquote class="borderStyle">
                   <h2>AAPL</h2>
-                  <h3 id="price4"></h3>
+                  <h3 id="price4" class="text-flow"></h3>
                 </blockquote>
               </div>
             </div>
@@ -96,13 +95,14 @@
 
     <div class="row">
       <div class="col s12">
-        <a class="waves-effect waves-light btn-large" style="width:100%">Back to Main</a>
+        <a id="backToMain" class="waves-effect waves-light btn-large" style="width:100%">Back to Main</a>
       </div>
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"></script>
+    <script src="Static/JS/script.js"></script>
     <script src="Static/JS/main.js"></script>
 </body>
 

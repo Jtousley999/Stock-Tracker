@@ -46,7 +46,7 @@ function loadSearched() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#searchedName").text(named);
+        $("#searchedName").html("<b>" + named + "</b>");
         $("#searchedCode").text(response['Global Quote']['01. symbol']);
         $("#priceNow").text(response['Global Quote']['05. price']);
     });
