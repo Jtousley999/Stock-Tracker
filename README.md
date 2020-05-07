@@ -1,7 +1,7 @@
 # Unit 07: Project 1
 
 ## Stock-Tracker
-Link to web page: 
+Link to web page: https://jtousley999.github.io/Stock-Tracker/
 
 ## Team Members
 * Artur Ayzenberg (@artbor19)
