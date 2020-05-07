@@ -165,14 +165,14 @@ function updatePage(NYTData) {
 
         // Create the  list group to contain the articles and add the article content for each
         var $articleList = $("<ul>");
-        $articleList.addClass("list-group");
+        $articleList.addClass("collection");
 
         // Add the newly created element to the DOM
         $("#article-section").append($articleList).css("text-align", "center");
 
         // If the article has a headline, log and append to $articleList
         var headline = article.headline;
-        var $articleListItem = $("<li class='list-group-item articleHeadline'>");
+        var $articleListItem = $("<li class='collection-item articleHeadline'>");
 
         if (headline && headline.main) {
             console.log(headline.main);

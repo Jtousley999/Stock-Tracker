@@ -33,7 +33,7 @@ SO THAT I can determine whether to buy or sell that stock
 * Materialize (https://materializecss.com/)
 
 ### API Reference: 
-* Alpha Vantage (https://www.alphavantage.co/)
+* Alpha Vantage (NEW) (https://www.alphavantage.co/)
 * New York Times (https://developer.nytimes.com/)
 
 ## Copyright:
