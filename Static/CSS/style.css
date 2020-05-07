@@ -1,5 +1,5 @@
 body {
-    background-image: url(https://www.pngitem.com/pimgs/m/50-505488_falling-money-background-png-money-falling-into-pile.png);
+    background-image: url(money-background.jpg);
 }
 
 .cardStyle {
@@ -20,3 +20,26 @@ body {
 #main-stock {
   text-align: center;
 }
+
+#top-articles {
+  font-size: 36px;
+  }
+  .article-header {
+    font-family: 'Bebas Neue', cursive;
+  }
+  .article-info {
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-left: 20px;
+  }
+  .link {
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+  #top-articles {
+    padding: 20px;
+    font-family: 'Bebas Neue', cursive;
+  }
+  body > div.container > div:nth-child(4) > div > div {
+    opacity: 85%;
+    border-color: white
+  }

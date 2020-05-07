@@ -39,6 +39,41 @@ $(".btn-large").on("click", function () {
     $(".btn-large").attr("href", "index.html");
 });
 
+function createBtns() {
+    var b1 = $("<a>")
+    b1.attr("class", "waves-effect waves-light btn");
+    b1.attr("value", "GOOG");
+    b1.attr("title", "Google");
+    b1.text("CONTINUE");
+    $("#btnOne").append(b1);
+    var b2 = $("<a>")
+    b2.attr("class", "waves-effect waves-light btn");
+    b2.attr("value", "MSFT");
+    b2.attr("title", "Microsoft");
+    b2.text("CONTINUE");
+    $("#btnTwo").append(b2);
+    var b3 = $("<a>")
+    b3.attr("class", "waves-effect waves-light btn");
+    b3.attr("value", "AMZN");
+    b3.attr("title", "Amazon");
+    b3.text("CONTINUE");
+    $("#btnThree").append(b3);
+    var b4 = $("<a>")
+    b4.attr("class", "waves-effect waves-light btn");
+    b4.attr("value", "AAPL");
+    b4.attr("title", "Apple");
+    b4.text("CONTINUE");
+    $("#btnFour").append(b4);
+    $(".btn-large").on("click", function () {
+        contCode = $(this).attr("value");
+        contName = $(this).attr("title");
+        localStorage.setItem("searched", contCode);
+        localStorage.setItem("named", contName);
+        $(".btn-large").attr("href", "main.html");
+    })
+}
+createBtns();
+
 function loadSearched() {
     var queryURL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + saved + "&apikey=" + apiKey;
     $.ajax({
@@ -178,7 +213,7 @@ function updatePage(NYTData) {
             console.log(headline.main);
             $articleListItem.append(
                 "<span class='label label-primary'></span>" +
-                "<h3> " +
+                "<h3 class='article-header'> " +
                 headline.main +
                 "</h3>"
             );
@@ -189,25 +224,25 @@ function updatePage(NYTData) {
 
         if (byline && byline.original) {
             console.log(byline.original);
-            $articleListItem.append("<h4>" + byline.original + "</h5>");
+            $articleListItem.append("<h5 class='article-info'>" + byline.original + "</h5>");
         }
 
         // Log section, and append to document if exists
         var section = article.section_name;
         console.log(article.section_name);
         if (section) {
-            $articleListItem.append("<h5>Section: " + section + "</h5>");
+            $articleListItem.append("<h5 class='article-info'>Section: " + section + "</h5>");
         }
 
         // Log published date, and append to document if exists
         var pubDate = article.pub_date;
         console.log(article.pub_date);
         if (pubDate) {
-            $articleListItem.append("<h5>Publish Date: " + article.pub_date.substring(5, 8) + article.pub_date.substring(8, 10) + "-" + article.pub_date.substring(0, 4) + "</h5>");
+            $articleListItem.append("<h5 class='article-info'>Publish Date: " + article.pub_date.substring(5, 8) + article.pub_date.substring(8, 10) + "-" + article.pub_date.substring(0, 4) + "</h5>");
         }
 
         // Append and log url
-        $articleListItem.append("<a href='" + article.web_url + "'>" + "Click here to read!" + "</a>");
+        $articleListItem.append("<a class='link' href='" + article.web_url + "'>" + "Click here to read!" + "</a>");
         console.log(article.web_url);
 
         // Append the article
@@ -231,3 +266,4 @@ goFor();
 function clear() {
     $("#article-section").empty();
 }
+

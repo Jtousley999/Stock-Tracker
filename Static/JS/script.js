@@ -50,6 +50,42 @@ $('#stockSearch').keydown(function (e) {
     }
 });;
 
+function createBtns() {
+    var b1 = $("<a>")
+    b1.attr("class", "waves-effect waves-light btn-large");
+    b1.attr("value", "GOOG");
+    b1.attr("title", "Google");
+    b1.text("CONTINUE");
+    $("#btnOne").append(b1);
+    var b2 = $("<a>")
+    b2.attr("class", "waves-effect waves-light btn-large");
+    b2.attr("value", "MSFT");
+    b2.attr("title", "Microsoft");
+    b2.text("CONTINUE");
+    $("#btnTwo").append(b2);
+    var b3 = $("<a>")
+    b3.attr("class", "waves-effect waves-light btn-large");
+    b3.attr("value", "AMZN");
+    b3.attr("title", "Amazon");
+    b3.text("CONTINUE");
+    $("#btnThree").append(b3);
+    var b4 = $("<a>")
+    b4.attr("class", "waves-effect waves-light btn-large");
+    b4.attr("value", "AAPL");
+    b4.attr("title", "Apple");
+    b4.text("CONTINUE");
+    $("#btnFour").append(b4);
+    $(".btn-large").on("click", function () {
+        contCode = $(this).attr("value");
+        contName = $(this).attr("title");
+        localStorage.setItem("searched", contCode);
+        localStorage.setItem("named", contName);
+        $(".btn-large").attr("href", "main.html");
+    })
+}
+createBtns();
+
+
 function showResults() {
     $("#searchResults").empty();
     $("#searchThing").text("Searched Results For: " + searchWord);
