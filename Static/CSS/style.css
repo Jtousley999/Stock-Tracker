@@ -36,10 +36,16 @@ body {
     padding-bottom: 20px;
   }
   #top-articles {
-    padding: 20px;
+    padding: 15px;
     font-family: 'Bebas Neue', cursive;
   }
   body > div.container > div:nth-child(4) > div > div {
     opacity: 85%;
     border-color: white
+  }
+
+  #searchThing {
+    color: #004d40;
+    background: #e0f2f1;
+    opacity: 85%;
   }
